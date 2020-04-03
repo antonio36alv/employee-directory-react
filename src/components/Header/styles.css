@@ -1,0 +1,14 @@
+div {
+    background-color: darkcyan;
+    text-align: center;
+    min-height: 75px;
+    max-height: 75px;
+    padding-top: 4px;
+}
+
+h1 {
+    margin: 1;
+    color: white;
+    text-decoration: overline underline;
+    font-size: 40px;
+}

@@ -1,0 +1,41 @@
+.user-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: solid thick black;
+}
+
+.user-div > * {
+    /* border: solid thin black; */
+    padding: 0;
+    padding-top: auto;
+    padding-bottom: auto;
+    vertical-align: middle;
+}
+
+.user-div div:nth-child(1) {
+    flex-grow: 8;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.user-div div:nth-child(2), div:nth-child(3), div:nth-child(4) {
+    flex-grow: 20;
+}
+
+.user-div div:nth-child(5) {
+    flex-grow: 5;
+}
+
+.user-div div > p {
+    color: purple;
+}
+
+img {
+    height: inherit;
+    width: inherit;
+    max-height: 100%;
+    margin: 0;
+    max-width: 100%;
+    
+}
