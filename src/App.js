@@ -9,17 +9,6 @@ import FieldsDiv from './components/FieldsDiv';
 //axios get call to random users api
 import { getUsers } from "./API"
 
-// console.log(getUsers())
-
-jawn()
-
-async function jawn() {
-
-  // const { data } = await getUsers()
-
-
-}
-
 class App extends Component {
 
   state = {
@@ -36,8 +25,6 @@ class App extends Component {
     const users = data.results.map(segment => {
       return {
         id: segment.login.uuid,
-        first: segment.name.first,
-        last: segment.name.last,
         name: `${segment.name.first} ${segment.name.last}`,
         phone: segment.phone,
         dob: this.convertDate(segment.dob.date),
@@ -110,13 +97,20 @@ class App extends Component {
     return sorted
   }
 
-  filterNames = e => {
+  filterNames = async e => {
 
-    console.log(e.target.value)
-    this.setState({ textValue: e.target.value })
-    const filteredArray = []
-    // for(const e of this.state.users) filteredArray.push(   )
-    // this.setState({ users: this.state.users.map(user => ) })
+    const value  = await e.target.value.toLowerCase()
+    
+    value !== "" ? this.setState({ textValue: value}) : this.setState({ textValue: this.state.textValue.substring(0, value.length)})
+
+    // if(this.state.textValue !== "") {
+      this.setState({ users: this.state.users.filter( user => 
+        (user.name.substring(0, this.state.textValue.length).toLowerCase() === this.state.textValue.toLowerCase())
+        )
+      })
+    // } else {
+    //   this.setState({ users:  })
+    // }      
   }
 
   render = () => {
@@ -132,7 +126,6 @@ class App extends Component {
         )}
       </main>
     </>
-
   }
 }
 
