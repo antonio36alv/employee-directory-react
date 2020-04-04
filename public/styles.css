@@ -11,4 +11,5 @@ body, * {
 main {
     margin: 4%;
     border: darkcyan 3px dashed;
+    background-color: darkcyan;
 }

@@ -3,7 +3,7 @@ import "./styles.css"
 
 export default function Header() {
 
-    return <div>
+    return <header>
         <h1>Employee Directory</h1>
-        </div>
+        </header>
 }
