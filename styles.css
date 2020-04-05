@@ -1,0 +1,15 @@
+body {
+    width: 100%;
+    background-color: lightgray;
+}
+
+body, * {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 4%;
+    border: darkcyan 3px dashed;
+    background-color: darkcyan;
+}
