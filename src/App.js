@@ -41,7 +41,9 @@ class App extends Component {
   convertDate = date => {
 
     let str = ""
-
+    //0--4-67-89
+    //XXXX-MM-DD
+    console.log(date)
     if (date.charAt(5) === "0") {
       str += date.substring(6, 8)
       if (date.charAt(8) === "0") {
@@ -51,11 +53,11 @@ class App extends Component {
       }
     }
     else {
-      str += date.substring(5, 7)
+      str += date.substring(5, 8)
       if (date.charAt(8) === "0") {
-        str += date.substring(8, 9)
+        str += date.substring(9, 10)
       } else {
-        str += date.substring(8, 9)
+        str += date.substring(8, 10)
       }
     }
     str += `-${date.substring(0, 4)}`
