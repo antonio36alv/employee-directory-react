@@ -67,7 +67,7 @@ class App extends Component {
 
     this.state.sortOrder === "dec" ? this.setState({ sortOrder: "asc" }) : this.setState({ sortOrder: "dec" })
 
-    const namesUnsorted = this.state.displayUsers.map(user => user.name)
+    const namesUnsorted = this.state.users.map(user => user.name)
     if (this.state.sortOrder === "asc") {
 
       const namesSorted = namesUnsorted.sort()
@@ -102,17 +102,19 @@ class App extends Component {
   filterNames = async e => {
 
     const value  = await e.target.value.toLowerCase()
+
+    console.log(value)
     
     value !== "" ? this.setState({ textValue: value}) : this.setState({ textValue: this.state.textValue.substring(0, value.length)})
 
-    if(this.state.textValue !== "") {
+    // if(this.state.textValue !== "") {
       this.setState({ displayUsers: this.state.users.filter( user => 
         (user.name.substring(0, this.state.textValue.length).toLowerCase() === this.state.textValue.toLowerCase())
         )
       })
-    } else {
-      this.setState({ displayUsers: this.state.users})
-    }      
+    // } else {
+      // this.setState({ displayUsers: this.state.users})
+    // }      
   }
 
   render = () => {
