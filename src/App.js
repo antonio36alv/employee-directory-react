@@ -67,7 +67,7 @@ class App extends Component {
 
     this.state.sortOrder === "dec" ? this.setState({ sortOrder: "asc" }) : this.setState({ sortOrder: "dec" })
 
-    const namesUnsorted = this.state.users.map(user => user.name)
+    const namesUnsorted = this.state.displayUsers.map(user => user.name)
     if (this.state.sortOrder === "asc") {
 
       const namesSorted = namesUnsorted.sort()
@@ -81,17 +81,18 @@ class App extends Component {
 
   sort = order => {
     const orderedIndices = []
-    let it = 0
-    for (let i = 0; i < order.length;) {
 
-      if (this.state.displayUsers[i].name === order[it]) {
-        orderedIndices.push(i)
-        it++
-        if (it === order.length) i = 8
-      } else {
-        i < order.length - 1 ? i++ : i = 0
+    for (let i = 0; i < order.length;) {
+      for(let it = 0; it < order.length; it++) {
+
+        if(this.state.displayUsers[it].name === order[i]) {
+
+          orderedIndices.push(it)
+          i++
+        }
       }
     }
+    
     const sorted = []
 
     for (const index of orderedIndices) sorted.push(this.state.displayUsers[index])
@@ -107,14 +108,10 @@ class App extends Component {
     
     value !== "" ? this.setState({ textValue: value}) : this.setState({ textValue: this.state.textValue.substring(0, value.length)})
 
-    // if(this.state.textValue !== "") {
       this.setState({ displayUsers: this.state.users.filter( user => 
         (user.name.substring(0, this.state.textValue.length).toLowerCase() === this.state.textValue.toLowerCase())
         )
       })
-    // } else {
-      // this.setState({ displayUsers: this.state.users})
-    // }      
   }
 
   render = () => {
