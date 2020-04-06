@@ -13,6 +13,7 @@ class App extends Component {
 
   state = {
     users: [],
+    displayUsers: [],
     sortOrder: "asc",
     textValue: ""
   }
@@ -34,6 +35,7 @@ class App extends Component {
     })
 
     this.setState({ users: users })
+    this.setState({ displayUsers: users})
   }
 
   convertDate = date => {
@@ -65,15 +67,15 @@ class App extends Component {
 
     this.state.sortOrder === "dec" ? this.setState({ sortOrder: "asc" }) : this.setState({ sortOrder: "dec" })
 
-    const namesUnsorted = this.state.users.map(user => user.name)
+    const namesUnsorted = this.state.displayUsers.map(user => user.name)
     if (this.state.sortOrder === "asc") {
 
       const namesSorted = namesUnsorted.sort()
-      this.setState({ users: this.sort(namesSorted) })
+      this.setState({ displayUsers: this.sort(namesSorted) })
     } else if (this.state.sortOrder === "dec") {
 
       const namesSorted = namesUnsorted.reverse()
-      this.setState({ users: this.sort(namesSorted) })
+      this.setState({ displayUsers: this.sort(namesSorted) })
     }
   }
 
@@ -82,7 +84,7 @@ class App extends Component {
     let it = 0
     for (let i = 0; i < order.length;) {
 
-      if (this.state.users[i].name === order[it]) {
+      if (this.state.displayUsers[i].name === order[it]) {
         orderedIndices.push(i)
         it++
         if (it === order.length) i = 8
@@ -92,7 +94,7 @@ class App extends Component {
     }
     const sorted = []
 
-    for (const index of orderedIndices) sorted.push(this.state.users[index])
+    for (const index of orderedIndices) sorted.push(this.state.displayUsers[index])
 
     return sorted
   }
@@ -103,14 +105,14 @@ class App extends Component {
     
     value !== "" ? this.setState({ textValue: value}) : this.setState({ textValue: this.state.textValue.substring(0, value.length)})
 
-    // if(this.state.textValue !== "") {
-      this.setState({ users: this.state.users.filter( user => 
+    if(this.state.textValue !== "") {
+      this.setState({ displayUsers: this.state.users.filter( user => 
         (user.name.substring(0, this.state.textValue.length).toLowerCase() === this.state.textValue.toLowerCase())
         )
       })
-    // } else {
-    //   this.setState({ users:  })
-    // }      
+    } else {
+      this.setState({ displayUsers: this.state.users})
+    }      
   }
 
   render = () => {
@@ -120,7 +122,7 @@ class App extends Component {
         <SearchBox textValue={this.state.textValue} filterNames={this.filterNames} />
         <FieldsDiv sortName={this.sortName} />
 
-        {this.state.users.map(user =>
+        {this.state.displayUsers.map(user =>
           <UserDiv key={user.id} name={user.name} image={user.image}
             phone={user.phone} email={user.email} dob={user.dob} />
         )}
