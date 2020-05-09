@@ -19,4 +19,6 @@ In [this assignment](INSTRUCTIONS.md) I was given the task of creating an employ
 ## Installation
 
 Node.js
+```sh
 npx create-react-app <appname>
+```
