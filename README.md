@@ -15,7 +15,7 @@
 
 ## Project Descritpion
 
-In [this assignment](INSTRUCTIONS.md) I was given the task of creating an employee directory in React, from scratch. This employee directory lists all the employees and relevant details.
+In [this assignment](INSTRUCTIONS.md) I was given the task of creating an employee directory in React, from scratch. This employee directory lists all the employees and relevant details. It also allows the user to search for an employee by thier name. Also allows the employee's by their name. Users are created by fetching fake users from the [randomuser.me API](https://randomuser.me/).
 
 ## Installation
 
