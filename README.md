@@ -15,7 +15,7 @@
 
 ## Project Descritpion
 
-In [this assignment](INSTRUCTIONS.md) I was given the task of creating an employee directory in React, from scratch.
+In [this assignment](INSTRUCTIONS.md) I was given the task of creating an employee directory in React, from scratch. This employee directory lists all the employees and relevant details.
 
 ## Installation
 
