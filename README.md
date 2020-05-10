@@ -2,15 +2,16 @@
 
 ![NodeJS badge](https://img.shields.io/badge/Javascript-React-Blue)
 
-### GitHub Username: [antonio36alv](https://github.com/antonio36alv)
-
-![Screenshot](public/screenshot.png)
-
 [GitHub Repo](https://github.com/antonio36alv/employee-directory)
 
 [Deployed Site - GitHub Pages](https://antonio36alv.github.io/employee-directory/)
 
 [Video Demo]()
+
+### GitHub Username: [antonio36alv](https://github.com/antonio36alv)
+
+![Screenshot](public/screenshot.png)
+
 
 ## Project Descritpion
 
